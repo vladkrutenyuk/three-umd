@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ESNext",
+        "lib": [
+            "ES6",
+            "DOM"
+        ], // Включите необходимые библиотеки
+        "declaration": true,
+        "outDir": "./dist",
+        "moduleResolution": "node",
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "allowSyntheticDefaultImports": true,
+        "resolveJsonModule": true
+    },
+    "include": [
+        "types/**/*.d.ts",
+        "node_modules/@types/**/*.d.ts"
+    ]
+}
