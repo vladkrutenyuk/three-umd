@@ -39,7 +39,7 @@ export default [
       format: "es",
       banner: `declare namespace ${_namespace} {`,
       footer: `}
-        declare module `${_module}` { export=${_namespace};}
+        declare module "${_module}" { export=${_namespace};}
       `,
     },
     plugins: [
