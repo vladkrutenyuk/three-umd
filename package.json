@@ -1,6 +1,6 @@
 {
   "name": "@vladkrutenyuk/three-umd",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "UMD build of three.js",
   "author": "Vlad Krutenyuk <vladislove2402@gmail.com> (https://kvy.world)",
   "license": "MIT",
@@ -9,17 +9,17 @@
     "type": "git",
     "url": "https://github.com/vladkrutenyuk/three-umd"
   },
-  "main": "dist/three-umd.min.js",
-  "types": "dist/three-umd.d.ts",
+  "main": "dist/three.umd.min.js",
+  "types": "dist/three.umd.d.ts",
   "type": "module",
   "scripts": {
     "build": "rollup -c",
-    "dts": "dts-bundle-generator --umd-module-name THREE -o dist/three-umd.d.ts types/index.d.ts"
+    "dts": "dts-bundle-generator --umd-module-name THREE -o dist/three.umd.d.ts types/index.d.ts"
   },
   "files": [
-    "dist/three-umd.d.ts",
-    "dist/three-umd.js",
-    "dist/three-umd.min.js",
+    "dist/three.umd.d.ts",
+    "dist/three.umd.js",
+    "dist/three.umd.min.js",
     "package.json",
     "LICENSE",
     "README.md"
