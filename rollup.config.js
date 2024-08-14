@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import { terser } from "rollup-plugin-terser";
 import dts from "rollup-plugin-dts";
 
+const _module = "three";
 const _namespace = "THREE";
 const _jsInput = "node_modules/three/build/three.module.js";
 const _dtsInput = "node_modules/@types/three/index.d.ts";
@@ -12,7 +13,7 @@ export default [
     input: _jsInput, // входной файл three.js
     output: [
       {
-        file: "dist/three-umd.js", // не минифицированный UMD файл
+        file: `dist/${_module}-umd.js`, // не минифицированный UMD файл
         format: "umd", // формат UMD
         name: _namespace, // глобальное имя
         globals: {
@@ -20,7 +21,7 @@ export default [
         },
       },
       {
-        file: "dist/three-umd.min.js", // минифицированный UMD файл
+        file: `dist/${_module}-umd.min.js`, // минифицированный UMD файл
         format: "umd",
         name: _namespace,
         plugins: [terser()],
@@ -34,10 +35,12 @@ export default [
   {
     input: _dtsInput,
     output: {
-      file: "dist/three-umd.d.ts",
+      file: `dist/${_module}-umd.d.ts`,
       format: "es",
       banner: `declare namespace ${_namespace} {`,
-      footer: `}`,
+      footer: `}
+        declare module `${_module}` { export=${_namespace};}
+      `,
     },
     plugins: [
       resolve({
