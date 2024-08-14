@@ -13,7 +13,7 @@ export default [
     input: _jsInput, // входной файл three.js
     output: [
       {
-        file: `dist/${_module}-umd.js`, // не минифицированный UMD файл
+        file: `dist/${_module}.umd.js`, // не минифицированный UMD файл
         format: "umd", // формат UMD
         name: _namespace, // глобальное имя
         globals: {
@@ -21,7 +21,7 @@ export default [
         },
       },
       {
-        file: `dist/${_module}-umd.min.js`, // минифицированный UMD файл
+        file: `dist/${_module}.umd.min.js`, // минифицированный UMD файл
         format: "umd",
         name: _namespace,
         plugins: [terser()],
@@ -35,9 +35,9 @@ export default [
   {
     input: _dtsInput,
     output: {
-      file: `dist/${_module}-umd.d.ts`,
+      file: `dist/${_module}.umd.d.ts`,
       format: "es",
-      banner: `declare module ${_namespace} {`,
+      banner: `declare namespace ${_namespace} {`,
       footer: `}
         declare module "${_module}" { export=${_namespace};}
       `,
