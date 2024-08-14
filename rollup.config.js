@@ -37,7 +37,7 @@ export default [
     output: {
       file: `dist/${_module}-umd.d.ts`,
       format: "es",
-      banner: `declare namespace ${_namespace} {`,
+      banner: `declare module ${_namespace} {`,
       footer: `}
         declare module "${_module}" { export=${_namespace};}
       `,
