@@ -5,11 +5,10 @@ import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import json from "@rollup/plugin-json";
-import replaceRelativeImports from "./replaceRelativeImports.js"; // Подключаем плагин
 
 const baseDir = "node_modules/three/examples/jsm";
 const outputDir = "dist/addons";
-const namespace = "ThreeAddons";
+const namespace = 'ThreeAddons'
 
 // Укажите нужные папки или файлы относительно baseDir
 const entries = [
@@ -81,7 +80,6 @@ const configs = entries.flatMap((entry) => {
           }),
           json(),
           terser(),
-          replaceRelativeImports(namespace), // Подключаем плагин
         ],
       };
     });
@@ -114,7 +112,6 @@ const configs = entries.flatMap((entry) => {
         }),
         json(),
         terser(),
-        replaceRelativeImports(namespace), // Подключаем плагин
       ],
     };
   }

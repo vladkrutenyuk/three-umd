@@ -1,6 +1,6 @@
 {
   "name": "@vladkrutenyuk/three-umd",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "UMD build of three.js",
   "author": "Vlad Krutenyuk <vladislove2402@gmail.com> (https://kvy.world)",
   "license": "MIT",
