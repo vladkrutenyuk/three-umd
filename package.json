@@ -1,6 +1,6 @@
 {
   "name": "@vladkrutenyuk/three-umd",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "UMD build of three.js",
   "author": "Vlad Krutenyuk <vladislove2402@gmail.com> (https://kvy.world)",
   "license": "MIT",
@@ -13,7 +13,9 @@
   "types": "dist/three.umd.d.ts",
   "type": "module",
   "scripts": {
-    "build": "rollup -c",
+    "build:core": "rollup -c",
+    "build:addons": "rollup -c rollup.addons.config.js",
+    "build": "rimraf dist && npm run build:core && npm run build:addons",
     "dts": "dts-bundle-generator --umd-module-name THREE -o dist/three.umd.d.ts types/index.d.ts"
   },
   "files": [
@@ -30,16 +32,20 @@
     "three.js"
   ],
   "devDependencies": {
-    "@types/three": "0.164.0",
-    "three": "0.164.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/es6-collections": "^0.5.36",
     "@types/es6-promise": "^3.3.0",
     "@types/node": "^22.3.0",
+    "@types/three": "0.164.0",
     "dts-bundle-generator": "^9.5.1",
+    "rimraf": "^6.0.1",
     "rollup": "^4.20.0",
     "rollup-plugin-dts": "^6.1.1",
     "rollup-plugin-terser": "^7.0.2",
+    "three": "0.164.0",
     "typescript": "^5.5.4"
   }
 }
